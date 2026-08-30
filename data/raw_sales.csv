@@ -1,0 +1,201 @@
+Order ID,Order Date,Customer ID,Customer Name,Product,Category,Region,Quantity,Unit Price,Discount,Sales,Profit,Payment Method
+ORD000001,2022-12-27,CUST0013,Mona Rao,Pen Set,Stationery,South,6,5.0,0.15,25.5,6.53,Debit Card
+ORD000002,2021-07-18,CUST0001,Alice Johnson,Ergo Chair,Furniture,Central,10,199.0,0.0,1990.0,423.35,Credit Card
+ORD000003,2021-12-31,CUST0003,Carol Lee,Backpack,Accessories,South,6,49.0,0.0,294.0,57.11,Debit Card
+ORD000004,2022-03-24,CUST0004,David Brown,Backpack,Accessories,East,6,49.0,0.0,294.0,62.63,Credit Card
+ORD000005,2021-11-06,CUST0014,Nina Gomez,Water Bottle,Accessories,South,10,12.0,0.1,108.0,22.69,Debit Card
+ORD000006,2020-10-31,CUST0010,Jack Liu,Office Lamp,Furniture,North,10,29.0,0.1,261.0,52.91,Cash
+ORD000007,2021-11-19,CUST0012,Lara Becker,Notebook A4,Stationery,West,5,3.5,0.15,14.88,3.88,Bank Transfer
+ORD000008,2021-06-10,CUST0010,Jack Liu,Fitness Band,Electronics,North,2,59.0,0.0,118.0,20.49,Bank Transfer
+ORD000009,2022-09-30,CUST0007,Grace Kim,Desk Organizer,Furniture,East,1,18.0,0.0,18.0,3.62,Credit Card
+ORD000010,2020-06-27,CUST0002,Bob Smith,PowerBank 20K,Electronics,North,3,49.0,0.05,139.65,24.37,PayPal
+ORD000011,2020-05-28,CUST0004,David Brown,Pen Set,Stationery,South,6,5.0,0.0,30.0,8.14,Bank Transfer
+ORD000012,2023-05-30,CUST0014,Nina Gomez,Ergo Chair,Furniture,South,6,199.0,0.1,1074.6,237.08,Debit Card
+ORD000013,2021-08-15,CUST0004,David Brown,Coffee Beans 1kg,Groceries,West,6,15.0,0.15,76.5,9.95,PayPal
+ORD000014,2022-07-26,CUST0009,Ivy Patel,Standing Desk,Furniture,Central,5,399.0,0.05,1895.25,392.41,Cash
+ORD000015,2022-08-18,CUST0013,Mona Rao,NoiseCancel Headset,Electronics,Central,6,129.0,0.1,696.6,126.8,Cash
+ORD000016,2023-09-11,CUST0010,Jack Liu,Water Bottle,Accessories,North,6,12.0,0.1,64.8,12.9,PayPal
+ORD000017,2023-03-27,CUST0011,Kumar Singh,Water Bottle,Accessories,Central,7,12.0,0.05,79.8,15.18,Cash
+ORD000018,2022-09-13,CUST0014,Nina Gomez,Coffee Beans 1kg,Groceries,Central,7,15.0,0.1,94.5,11.99,Debit Card
+ORD000019,2022-05-14,CUST0004,David Brown,Pen Set,Stationery,Central,6,5.0,0.0,30.0,7.78,Debit Card
+ORD000020,2021-10-23,CUST0014,Nina Gomez,Ergo Chair,Furniture,Central,5,199.0,0.0,995.0,201.71,Cash
+ORD000021,2023-05-20,CUST0012,Lara Becker,Office Lamp,Furniture,Central,5,29.0,0.0,145.0,30.63,Credit Card
+ORD000022,2021-11-13,CUST0013,Mona Rao,NoiseCancel Headset,Electronics,West,3,129.0,0.05,367.65,66.31,Bank Transfer
+ORD000023,2023-06-22,CUST0012,Lara Becker,NoiseCancel Headset,Electronics,South,4,129.0,0.0,516.0,88.2,Bank Transfer
+ORD000024,2021-01-09,CUST0007,Grace Kim,UltraPhone X,Electronics,South,3,699.0,0.05,1992.15,382.59,PayPal
+ORD000025,2020-05-10,CUST0013,Mona Rao,PowerBank 20K,Electronics,West,4,49.0,0.05,186.2,31.98,PayPal
+ORD000026,2020-03-06,CUST0012,Lara Becker,Desk Organizer,Furniture,North,7,18.0,0.05,119.7,26.71,PayPal
+ORD000027,2020-04-04,CUST0002,Bob Smith,UltraPhone X,Electronics,West,7,699.0,0.0,4893.0,815.75,PayPal
+ORD000028,2021-02-23,CUST0001,Alice Johnson,Gift Card $50,Gift,Central,4,50.0,0.05,190.0,28.15,Cash
+ORD000029,2022-03-17,CUST0012,Lara Becker,Pen Set,Stationery,East,9,5.0,0.05,42.75,11.23,PayPal
+ORD000030,2021-12-27,CUST0011,Kumar Singh,NoiseCancel Headset,Electronics,East,4,129.0,0.1,464.4,87.0,Bank Transfer
+ORD000031,2020-01-10,CUST0011,Kumar Singh,Ergo Chair,Furniture,West,5,199.0,0.15,845.75,204.43,PayPal
+ORD000032,2020-09-06,CUST0006,Frank Wright,Water Bottle,Accessories,South,8,12.0,0.15,81.6,15.98,Bank Transfer
+ORD000033,2022-05-06,CUST0011,Kumar Singh,Pen Set,Stationery,West,4,5.0,0.1,18.0,4.35,Cash
+ORD000034,2021-03-22,CUST0008,Hector Cruz,SmartWatch Pro,Electronics,North,9,249.0,0.05,2128.95,378.95,Bank Transfer
+ORD000035,2022-09-10,CUST0011,Kumar Singh,Coffee Beans 1kg,Groceries,South,9,15.0,0.1,121.5,15.34,Credit Card
+ORD000036,2021-01-24,CUST0015,Omar Ali,SmartWatch Pro,Electronics,East,8,249.0,0.1,1792.8,315.19,Debit Card
+ORD000037,2023-09-30,CUST0001,Alice Johnson,Water Bottle,Accessories,East,9,12.0,0.0,108.0,22.13,Bank Transfer
+ORD000038,2023-12-15,CUST0002,Bob Smith,Pen Set,Stationery,South,5,5.0,0.1,22.5,5.31,PayPal
+ORD000039,2023-09-09,CUST0005,Eva Green,Coffee Beans 1kg,Groceries,Central,4,15.0,0.1,54.0,6.48,Cash
+ORD000040,2022-06-07,CUST0006,Frank Wright,PowerBank 20K,Electronics,East,3,49.0,0.1,132.3,22.38,PayPal
+ORD000041,2022-04-11,CUST0011,Kumar Singh,Gift Card $50,Gift,North,5,50.0,0.15,212.5,29.72,PayPal
+ORD000042,2022-05-19,CUST0008,Hector Cruz,Water Bottle,Accessories,Central,4,12.0,0.1,43.2,8.27,Bank Transfer
+ORD000043,2020-04-29,CUST0007,Grace Kim,Ergo Chair,Furniture,North,6,199.0,0.15,1014.9,211.16,PayPal
+ORD000044,2022-11-20,CUST0006,Frank Wright,Notebook A4,Stationery,East,5,3.5,0.0,17.5,4.33,Bank Transfer
+ORD000045,2023-10-10,CUST0014,Nina Gomez,SmartWatch Pro,Electronics,North,5,249.0,0.0,1245.0,212.77,Debit Card
+ORD000046,2021-02-08,CUST0006,Frank Wright,Standing Desk,Furniture,South,6,399.0,0.15,2034.9,461.93,Bank Transfer
+ORD000047,2020-02-07,CUST0014,Nina Gomez,Fitness Band,Electronics,West,1,59.0,0.15,50.15,8.36,PayPal
+ORD000048,2020-11-11,CUST0002,Bob Smith,Gift Card $50,Gift,South,1,50.0,0.0,50.0,7.06,Debit Card
+ORD000049,2020-10-07,CUST0010,Jack Liu,Backpack,Accessories,East,5,49.0,0.05,232.75,46.63,Cash
+ORD000050,2021-06-28,CUST0002,Bob Smith,Coffee Beans 1kg,Groceries,North,7,15.0,0.15,89.25,10.51,Debit Card
+ORD000051,2022-10-04,CUST0012,Lara Becker,Pen Set,Stationery,North,1,5.0,0.1,4.5,1.19,Credit Card
+ORD000052,2021-08-21,CUST0009,Ivy Patel,SmartWatch Pro,Electronics,North,4,249.0,0.1,896.4,148.16,Debit Card
+ORD000053,2020-03-30,CUST0014,Nina Gomez,NoiseCancel Headset,Electronics,Central,9,129.0,0.15,986.85,181.96,Cash
+ORD000054,2023-06-25,CUST0008,Hector Cruz,Standing Desk,Furniture,North,2,399.0,0.05,758.1,172.58,PayPal
+ORD000055,2020-12-27,CUST0010,Jack Liu,SmartWatch Pro,Electronics,North,10,249.0,0.1,2241.0,438.39,Cash
+ORD000056,2020-05-06,CUST0002,Bob Smith,Standing Desk,Furniture,West,4,399.0,0.1,1436.4,296.92,Debit Card
+ORD000057,2021-01-27,CUST0012,Lara Becker,Pen Set,Stationery,Central,7,5.0,0.1,31.5,7.73,Credit Card
+ORD000058,2023-03-20,CUST0002,Bob Smith,Pen Set,Stationery,West,2,5.0,0.15,8.5,2.08,Credit Card
+ORD000059,2021-09-22,CUST0008,Hector Cruz,Desk Organizer,Furniture,South,9,18.0,0.1,145.8,28.91,Debit Card
+ORD000060,2023-09-18,CUST0001,Alice Johnson,Water Bottle,Accessories,Central,6,12.0,0.15,61.2,13.09,Credit Card
+ORD000061,2023-02-13,CUST0012,Lara Becker,Ergo Chair,Furniture,North,9,199.0,0.15,1522.35,338.46,Cash
+ORD000062,2022-10-09,CUST0003,Carol Lee,SmartWatch Pro,Electronics,West,6,249.0,0.15,1269.9,233.26,PayPal
+ORD000063,2021-11-15,CUST0007,Grace Kim,Notebook A4,Stationery,Central,2,3.5,0.0,7.0,1.75,Bank Transfer
+ORD000064,2021-01-08,CUST0012,Lara Becker,Notebook A4,Stationery,South,10,3.5,0.15,29.75,7.93,Credit Card
+ORD000065,2020-01-04,CUST0010,Jack Liu,Fitness Band,Electronics,South,4,59.0,0.05,224.2,43.51,Bank Transfer
+ORD000066,2023-12-31,CUST0006,Frank Wright,Water Bottle,Accessories,West,5,12.0,0.0,60.0,12.52,Cash
+ORD000067,2020-06-14,CUST0003,Carol Lee,Water Bottle,Accessories,West,3,12.0,0.1,32.4,6.96,Bank Transfer
+ORD000068,2021-06-14,CUST0003,Carol Lee,Office Lamp,Furniture,South,6,29.0,0.0,174.0,36.75,PayPal
+ORD000069,2022-12-23,CUST0014,Nina Gomez,Coffee Beans 1kg,Groceries,South,10,15.0,0.15,127.5,15.44,Cash
+ORD000070,2022-07-04,CUST0007,Grace Kim,NoiseCancel Headset,Electronics,Central,3,129.0,0.05,367.65,63.67,Cash
+ORD000071,2021-08-07,CUST0004,David Brown,Office Lamp,Furniture,West,1,29.0,0.0,29.0,5.81,Debit Card
+ORD000072,2020-01-30,CUST0014,Nina Gomez,Pen Set,Stationery,West,5,5.0,0.05,23.75,5.66,Debit Card
+ORD000073,2021-09-03,CUST0008,Hector Cruz,Standing Desk,Furniture,Central,2,399.0,0.1,718.2,166.97,Credit Card
+ORD000074,2020-10-08,CUST0005,Eva Green,Notebook A4,Stationery,West,4,3.5,0.05,13.3,3.08,PayPal
+ORD000075,2023-07-16,CUST0005,Eva Green,Gift Card $50,Gift,South,8,50.0,0.1,360.0,54.46,Credit Card
+ORD000076,2021-08-31,CUST0011,Kumar Singh,NoiseCancel Headset,Electronics,West,4,129.0,0.0,516.0,84.01,Bank Transfer
+ORD000077,2021-09-21,CUST0009,Ivy Patel,Pen Set,Stationery,West,3,5.0,0.05,14.25,3.45,Credit Card
+ORD000078,2022-01-28,CUST0006,Frank Wright,Notebook A4,Stationery,South,4,3.5,0.1,12.6,2.92,Cash
+ORD000079,2021-06-10,CUST0001,Alice Johnson,Office Lamp,Furniture,South,3,29.0,0.05,82.65,17.71,Credit Card
+ORD000080,2023-01-24,CUST0008,Hector Cruz,Coffee Beans 1kg,Groceries,North,4,15.0,0.15,51.0,6.28,Debit Card
+ORD000081,2020-01-24,CUST0009,Ivy Patel,Fitness Band,Electronics,East,7,59.0,0.1,371.7,62.88,Cash
+ORD000082,2022-07-09,CUST0003,Carol Lee,Ergo Chair,Furniture,West,9,199.0,0.0,1791.0,379.51,Credit Card
+ORD000083,2023-09-07,CUST0008,Hector Cruz,Pen Set,Stationery,North,6,5.0,0.05,28.5,7.67,Credit Card
+ORD000084,2020-05-30,CUST0008,Hector Cruz,NoiseCancel Headset,Electronics,South,8,129.0,0.0,1032.0,189.7,Credit Card
+ORD000085,2022-11-28,CUST0006,Frank Wright,Gift Card $50,Gift,Central,7,50.0,0.0,350.0,47.74,Cash
+ORD000086,2020-08-06,CUST0014,Nina Gomez,Water Bottle,Accessories,South,7,12.0,0.15,71.4,14.41,Bank Transfer
+ORD000087,2022-02-05,CUST0009,Ivy Patel,Fitness Band,Electronics,North,6,59.0,0.05,336.3,64.93,Debit Card
+ORD000088,2022-08-02,CUST0007,Grace Kim,Backpack,Accessories,East,10,49.0,0.15,416.5,82.19,Cash
+ORD000089,2022-10-22,CUST0010,Jack Liu,Fitness Band,Electronics,East,7,59.0,0.05,392.35,69.15,PayPal
+ORD000090,2022-12-31,CUST0001,Alice Johnson,Ergo Chair,Furniture,West,9,199.0,0.05,1701.45,375.73,Cash
+ORD000091,2020-04-19,CUST0001,Alice Johnson,Office Lamp,Furniture,West,1,29.0,0.0,29.0,6.29,Credit Card
+ORD000092,2023-11-07,CUST0015,Omar Ali,Gift Card $50,Gift,West,2,50.0,0.0,100.0,15.48,Cash
+ORD000093,2023-12-04,CUST0003,Carol Lee,Ergo Chair,Furniture,Central,10,199.0,0.15,1691.5,352.08,Debit Card
+ORD000094,2023-12-06,CUST0008,Hector Cruz,Desk Organizer,Furniture,South,4,18.0,0.1,64.8,15.15,Debit Card
+ORD000095,2020-07-02,CUST0002,Bob Smith,Standing Desk,Furniture,West,4,399.0,0.15,1356.6,304.42,Bank Transfer
+ORD000096,2021-04-13,CUST0011,Kumar Singh,Water Bottle,Accessories,North,5,12.0,0.1,54.0,9.95,PayPal
+ORD000097,2023-06-27,CUST0006,Frank Wright,Coffee Beans 1kg,Groceries,North,2,15.0,0.1,27.0,3.38,PayPal
+ORD000098,2021-11-14,CUST0012,Lara Becker,Desk Organizer,Furniture,West,3,18.0,0.0,54.0,11.13,Bank Transfer
+ORD000099,2022-07-28,CUST0005,Eva Green,SmartWatch Pro,Electronics,North,10,249.0,0.15,2116.5,403.6,PayPal
+ORD000100,2023-06-26,CUST0015,Omar Ali,SmartWatch Pro,Electronics,West,7,249.0,0.0,1743.0,306.44,PayPal
+ORD000101,2021-07-27,CUST0001,Alice Johnson,Notebook A4,Stationery,East,5,3.5,0.05,16.62,4.0,Bank Transfer
+ORD000102,2023-07-10,CUST0005,Eva Green,Office Lamp,Furniture,West,3,29.0,0.0,87.0,18.45,Bank Transfer
+ORD000103,2021-06-04,CUST0010,Jack Liu,Ergo Chair,Furniture,West,1,199.0,0.1,179.1,42.09,Credit Card
+ORD000104,2020-01-17,CUST0014,Nina Gomez,NoiseCancel Headset,Electronics,South,2,129.0,0.15,219.3,38.1,Bank Transfer
+ORD000105,2023-02-18,CUST0011,Kumar Singh,Standing Desk,Furniture,West,3,399.0,0.15,1017.45,202.27,Cash
+ORD000106,2021-11-01,CUST0011,Kumar Singh,UltraPhone X,Electronics,Central,2,699.0,0.1,1258.2,238.88,Debit Card
+ORD000107,2023-08-12,CUST0002,Bob Smith,Notebook A4,Stationery,East,7,3.5,0.1,22.05,5.21,Debit Card
+ORD000108,2023-06-03,CUST0005,Eva Green,Coffee Beans 1kg,Groceries,West,8,15.0,0.15,102.0,12.5,Cash
+ORD000109,2023-02-10,CUST0002,Bob Smith,SmartWatch Pro,Electronics,Central,1,249.0,0.05,236.55,41.56,Debit Card
+ORD000110,2020-11-11,CUST0006,Frank Wright,NoiseCancel Headset,Electronics,East,10,129.0,0.05,1225.5,203.68,PayPal
+ORD000111,2022-07-03,CUST0008,Hector Cruz,Pen Set,Stationery,North,3,5.0,0.1,13.5,3.58,Debit Card
+ORD000112,2022-07-11,CUST0007,Grace Kim,Desk Organizer,Furniture,East,6,18.0,0.15,91.8,22.15,Cash
+ORD000113,2020-02-05,CUST0011,Kumar Singh,SmartWatch Pro,Electronics,East,10,249.0,0.15,2116.5,405.72,Debit Card
+ORD000114,2022-07-29,CUST0006,Frank Wright,Backpack,Accessories,Central,2,49.0,0.15,83.3,17.46,PayPal
+ORD000115,2021-08-27,CUST0008,Hector Cruz,SmartWatch Pro,Electronics,South,1,249.0,0.15,211.65,37.44,Credit Card
+ORD000116,2022-06-22,CUST0002,Bob Smith,Notebook A4,Stationery,South,4,3.5,0.15,11.9,3.2,Cash
+ORD000117,2023-11-30,CUST0013,Mona Rao,NoiseCancel Headset,Electronics,West,8,129.0,0.15,877.2,146.64,Debit Card
+ORD000118,2021-07-03,CUST0004,David Brown,UltraPhone X,Electronics,Central,6,699.0,0.15,3564.9,607.32,PayPal
+ORD000119,2021-02-15,CUST0007,Grace Kim,Standing Desk,Furniture,Central,2,399.0,0.15,678.3,157.75,Credit Card
+ORD000120,2022-06-07,CUST0012,Lara Becker,Gift Card $50,Gift,East,4,50.0,0.0,200.0,27.49,Bank Transfer
+ORD000121,2020-06-30,CUST0014,Nina Gomez,SmartWatch Pro,Electronics,North,2,249.0,0.15,423.3,80.74,Credit Card
+ORD000122,2021-08-20,CUST0014,Nina Gomez,NoiseCancel Headset,Electronics,North,1,129.0,0.05,122.55,22.5,Credit Card
+ORD000123,2022-12-07,CUST0003,Carol Lee,PowerBank 20K,Electronics,East,6,49.0,0.05,279.3,48.09,Bank Transfer
+ORD000124,2021-03-17,CUST0005,Eva Green,Fitness Band,Electronics,East,6,59.0,0.1,318.6,55.92,Credit Card
+ORD000125,2020-11-10,CUST0002,Bob Smith,Standing Desk,Furniture,West,5,399.0,0.1,1795.5,365.74,Debit Card
+ORD000126,2023-05-26,CUST0012,Lara Becker,Fitness Band,Electronics,North,10,59.0,0.0,590.0,111.44,Debit Card
+ORD000127,2022-05-27,CUST0015,Omar Ali,Gift Card $50,Gift,East,8,50.0,0.05,380.0,53.44,Cash
+ORD000128,2022-06-05,CUST0005,Eva Green,Office Lamp,Furniture,West,6,29.0,0.15,147.9,34.43,Cash
+ORD000129,2021-11-18,CUST0007,Grace Kim,Notebook A4,Stationery,Central,9,3.5,0.1,28.35,7.15,Credit Card
+ORD000130,2020-12-24,CUST0010,Jack Liu,Notebook A4,Stationery,North,9,3.5,0.15,26.77,7.17,Credit Card
+ORD000131,2023-09-27,CUST0009,Ivy Patel,UltraPhone X,Electronics,South,7,699.0,0.1,4403.7,717.19,Cash
+ORD000132,2022-11-10,CUST0015,Omar Ali,Office Lamp,Furniture,Central,1,29.0,0.1,26.1,5.33,Bank Transfer
+ORD000133,2020-03-10,CUST0008,Hector Cruz,Pen Set,Stationery,North,7,5.0,0.15,29.75,7.13,Cash
+ORD000134,2023-11-16,CUST0008,Hector Cruz,Office Lamp,Furniture,North,10,29.0,0.05,275.5,63.82,Bank Transfer
+ORD000135,2023-04-27,CUST0005,Eva Green,Standing Desk,Furniture,East,7,399.0,0.15,2374.05,573.72,Cash
+ORD000136,2021-01-06,CUST0002,Bob Smith,Notebook A4,Stationery,Central,3,3.5,0.15,8.92,2.43,Bank Transfer
+ORD000137,2022-03-25,CUST0009,Ivy Patel,SmartWatch Pro,Electronics,South,10,249.0,0.05,2365.5,431.06,Cash
+ORD000138,2022-10-31,CUST0003,Carol Lee,Backpack,Accessories,West,3,49.0,0.15,124.95,25.8,Cash
+ORD000139,2020-03-12,CUST0008,Hector Cruz,Pen Set,Stationery,South,5,5.0,0.05,23.75,5.77,Debit Card
+ORD000140,2023-01-23,CUST0005,Eva Green,Gift Card $50,Gift,West,2,50.0,0.05,95.0,13.41,Bank Transfer
+ORD000141,2020-12-21,CUST0014,Nina Gomez,Fitness Band,Electronics,North,9,59.0,0.1,477.9,89.1,Cash
+ORD000142,2021-07-03,CUST0012,Lara Becker,Backpack,Accessories,East,5,49.0,0.1,220.5,41.53,Credit Card
+ORD000143,2021-07-20,CUST0010,Jack Liu,Coffee Beans 1kg,Groceries,North,10,15.0,0.1,135.0,17.34,Debit Card
+ORD000144,2022-05-17,CUST0006,Frank Wright,PowerBank 20K,Electronics,West,10,49.0,0.1,441.0,73.7,Debit Card
+ORD000145,2023-12-13,CUST0009,Ivy Patel,Standing Desk,Furniture,West,3,399.0,0.0,1197.0,238.04,PayPal
+ORD000146,2023-11-05,CUST0015,Omar Ali,NoiseCancel Headset,Electronics,North,8,129.0,0.05,980.4,188.62,Bank Transfer
+ORD000147,2023-12-18,CUST0008,Hector Cruz,SmartWatch Pro,Electronics,North,4,249.0,0.0,996.0,180.63,Cash
+ORD000148,2021-12-26,CUST0010,Jack Liu,UltraPhone X,Electronics,South,10,699.0,0.1,6291.0,1078.08,Bank Transfer
+ORD000149,2021-12-17,CUST0010,Jack Liu,NoiseCancel Headset,Electronics,West,10,129.0,0.15,1096.5,182.16,Bank Transfer
+ORD000150,2020-10-31,CUST0003,Carol Lee,Pen Set,Stationery,South,9,5.0,0.05,42.75,11.25,Debit Card
+ORD000151,2021-08-16,CUST0011,Kumar Singh,Office Lamp,Furniture,North,5,29.0,0.0,145.0,29.73,Cash
+ORD000152,2022-04-12,CUST0009,Ivy Patel,UltraPhone X,Electronics,North,4,699.0,0.15,2376.6,426.78,Debit Card
+ORD000153,2021-12-03,CUST0010,Jack Liu,Fitness Band,Electronics,West,10,59.0,0.15,501.5,83.79,Bank Transfer
+ORD000154,2022-05-03,CUST0001,Alice Johnson,PowerBank 20K,Electronics,South,9,49.0,0.1,396.9,72.78,Credit Card
+ORD000155,2021-08-03,CUST0004,David Brown,NoiseCancel Headset,Electronics,East,4,129.0,0.15,438.6,77.21,Credit Card
+ORD000156,2022-07-14,CUST0007,Grace Kim,Pen Set,Stationery,South,6,5.0,0.15,25.5,5.77,Bank Transfer
+ORD000157,2021-06-18,CUST0002,Bob Smith,Standing Desk,Furniture,North,9,399.0,0.05,3411.45,726.94,Credit Card
+ORD000158,2023-11-23,CUST0007,Grace Kim,UltraPhone X,Electronics,South,7,699.0,0.0,4893.0,834.12,PayPal
+ORD000159,2023-11-27,CUST0003,Carol Lee,Gift Card $50,Gift,East,7,50.0,0.15,297.5,41.47,Debit Card
+ORD000160,2022-05-23,CUST0014,Nina Gomez,UltraPhone X,Electronics,North,1,699.0,0.05,664.05,131.21,Cash
+ORD000161,2022-12-17,CUST0015,Omar Ali,NoiseCancel Headset,Electronics,East,2,129.0,0.05,245.1,40.14,Debit Card
+ORD000162,2022-05-05,CUST0001,Alice Johnson,PowerBank 20K,Electronics,West,9,49.0,0.0,441.0,76.46,Cash
+ORD000163,2023-12-15,CUST0015,Omar Ali,Water Bottle,Accessories,North,10,12.0,0.15,102.0,22.41,Credit Card
+ORD000164,2020-10-09,CUST0015,Omar Ali,Ergo Chair,Furniture,Central,6,199.0,0.05,1134.3,269.55,PayPal
+ORD000165,2020-07-10,CUST0012,Lara Becker,PowerBank 20K,Electronics,South,2,49.0,0.05,93.1,18.08,Credit Card
+ORD000166,2023-02-16,CUST0014,Nina Gomez,Pen Set,Stationery,Central,8,5.0,0.05,38.0,9.19,Cash
+ORD000167,2021-07-16,CUST0009,Ivy Patel,PowerBank 20K,Electronics,East,3,49.0,0.05,139.65,26.27,PayPal
+ORD000168,2021-05-18,CUST0013,Mona Rao,Desk Organizer,Furniture,North,5,18.0,0.15,76.5,17.21,Debit Card
+ORD000169,2022-09-24,CUST0001,Alice Johnson,Backpack,Accessories,West,5,49.0,0.1,220.5,43.98,Debit Card
+ORD000170,2022-09-02,CUST0001,Alice Johnson,SmartWatch Pro,Electronics,Central,5,249.0,0.1,1120.5,214.99,PayPal
+ORD000171,2023-03-03,CUST0010,Jack Liu,Ergo Chair,Furniture,South,4,199.0,0.1,716.4,164.77,PayPal
+ORD000172,2023-07-06,CUST0014,Nina Gomez,PowerBank 20K,Electronics,South,4,49.0,0.15,166.6,28.02,Cash
+ORD000173,2022-05-12,CUST0006,Frank Wright,Ergo Chair,Furniture,South,2,199.0,0.1,358.2,78.15,Debit Card
+ORD000174,2022-06-28,CUST0013,Mona Rao,SmartWatch Pro,Electronics,East,6,249.0,0.05,1419.3,246.26,PayPal
+ORD000175,2022-02-26,CUST0001,Alice Johnson,Water Bottle,Accessories,South,4,12.0,0.05,45.6,8.83,Bank Transfer
+ORD000176,2023-09-01,CUST0015,Omar Ali,Standing Desk,Furniture,South,4,399.0,0.0,1596.0,316.97,Credit Card
+ORD000177,2023-06-01,CUST0007,Grace Kim,Ergo Chair,Furniture,North,4,199.0,0.0,796.0,175.1,Debit Card
+ORD000178,2021-11-01,CUST0012,Lara Becker,Notebook A4,Stationery,West,9,3.5,0.05,29.92,7.48,Cash
+ORD000179,2020-12-12,CUST0002,Bob Smith,NoiseCancel Headset,Electronics,West,2,129.0,0.05,245.1,43.7,Bank Transfer
+ORD000180,2020-05-17,CUST0009,Ivy Patel,Desk Organizer,Furniture,Central,1,18.0,0.0,18.0,3.67,Credit Card
+ORD000181,2021-01-24,CUST0005,Eva Green,NoiseCancel Headset,Electronics,East,4,129.0,0.15,438.6,73.04,Bank Transfer
+ORD000182,2023-10-03,CUST0009,Ivy Patel,Ergo Chair,Furniture,Central,9,199.0,0.05,1701.45,350.1,Cash
+ORD000183,2021-12-13,CUST0001,Alice Johnson,UltraPhone X,Electronics,East,10,699.0,0.1,6291.0,1174.09,PayPal
+ORD000184,2020-05-28,CUST0007,Grace Kim,UltraPhone X,Electronics,South,8,699.0,0.05,5312.4,1008.14,Credit Card
+ORD000185,2020-02-27,CUST0012,Lara Becker,Backpack,Accessories,Central,4,49.0,0.15,166.6,31.41,Bank Transfer
+ORD000186,2020-04-15,CUST0013,Mona Rao,Gift Card $50,Gift,West,2,50.0,0.05,95.0,13.02,Credit Card
+ORD000187,2023-08-16,CUST0006,Frank Wright,Water Bottle,Accessories,Central,5,12.0,0.1,54.0,9.97,Bank Transfer
+ORD000188,2021-10-20,CUST0005,Eva Green,Ergo Chair,Furniture,North,9,199.0,0.15,1522.35,356.35,PayPal
+ORD000189,2022-01-12,CUST0002,Bob Smith,Gift Card $50,Gift,North,3,50.0,0.1,135.0,20.95,Credit Card
+ORD000190,2020-12-29,CUST0008,Hector Cruz,Ergo Chair,Furniture,West,7,199.0,0.0,1393.0,332.53,PayPal
+ORD000191,2020-11-04,CUST0012,Lara Becker,Water Bottle,Accessories,West,10,12.0,0.0,120.0,24.03,Debit Card
+ORD000192,2021-01-10,CUST0004,David Brown,SmartWatch Pro,Electronics,East,2,249.0,0.15,423.3,75.12,Debit Card
+ORD000193,2023-07-22,CUST0008,Hector Cruz,Ergo Chair,Furniture,West,5,199.0,0.05,945.25,205.31,Debit Card
+ORD000194,2022-05-03,CUST0014,Nina Gomez,SmartWatch Pro,Electronics,North,5,249.0,0.15,1058.25,192.74,Credit Card
+ORD000195,2020-11-13,CUST0003,Carol Lee,Standing Desk,Furniture,East,9,399.0,0.05,3411.45,769.49,PayPal
+ORD000196,2021-05-20,CUST0009,Ivy Patel,SmartWatch Pro,Electronics,South,5,249.0,0.05,1182.75,222.23,PayPal
+ORD000197,2022-05-26,CUST0007,Grace Kim,Desk Organizer,Furniture,West,2,18.0,0.15,30.6,6.38,Credit Card
+ORD000198,2021-05-22,CUST0002,Bob Smith,UltraPhone X,Electronics,South,3,699.0,0.05,1992.15,328.86,Bank Transfer
+ORD000199,2022-05-04,CUST0013,Mona Rao,Desk Organizer,Furniture,South,8,18.0,0.1,129.6,25.82,Bank Transfer
+ORD000200,2022-11-06,CUST0009,Ivy Patel,Fitness Band,Electronics,Central,6,59.0,0.0,354.0,66.28,Credit Card

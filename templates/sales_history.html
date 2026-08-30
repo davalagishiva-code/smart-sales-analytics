@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="analysis-grid">
+  <section class="panel-card" style="grid-column: span 12;">
+    <div class="section-title">
+      <div>
+        <h3>Sales History</h3>
+        <p>Browse all recorded transactions with search, filters, and sorting.</p>
+      </div>
+      <a class="btn btn-secondary" href="/add-sale">Add new sale</a>
+    </div>
+
+    <form method="get" class="form-card" style="grid-template-columns: repeat(4, minmax(0, 1fr));">
+      <div class="form-group">
+        <label>Search</label>
+        <input type="search" name="search" value="{{ filters.search }}" placeholder="Product, customer, payment" />
+      </div>
+      <div class="form-group">
+        <label>Category</label>
+        <select name="category">
+          {% for category in categories %}
+          <option value="{{ category }}" {{ 'selected' if filters.category == category else '' }}>{{ category }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Start date</label>
+        <input type="date" name="start_date" value="{{ filters.start_date }}" />
+      </div>
+      <div class="form-group">
+        <label>End date</label>
+        <input type="date" name="end_date" value="{{ filters.end_date }}" />
+      </div>
+      <div class="form-group">
+        <label>Sort by</label>
+        <select name="sort_by">
+          <option value="sale_date" {{ 'selected' if filters.sort_by == 'sale_date' else '' }}>Date</option>
+          <option value="total_sales" {{ 'selected' if filters.sort_by == 'total_sales' else '' }}>Sales</option>
+          <option value="profit" {{ 'selected' if filters.sort_by == 'profit' else '' }}>Profit</option>
+          <option value="quantity" {{ 'selected' if filters.sort_by == 'quantity' else '' }}>Quantity</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Sort direction</label>
+        <select name="sort_dir">
+          <option value="desc" {{ 'selected' if filters.sort_dir == 'desc' else '' }}>Descending</option>
+          <option value="asc" {{ 'selected' if filters.sort_dir == 'asc' else '' }}>Ascending</option>
+        </select>
+      </div>
+      <div class="form-group" style="align-self: end;">
+        <button class="btn btn-primary" type="submit">Apply</button>
+      </div>
+    </form>
+
+    <div class="table-wrapper">
+      <table class="table-dashboard">
+        <thead>
+          <tr>
+            <th>Sale ID</th>
+            <th>Date</th>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Customer</th>
+            <th>Qty</th>
+            <th>Discount</th>
+            <th>Total Sales</th>
+            <th>Profit</th>
+            <th>Payment</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for sale in sales %}
+          <tr>
+            <td>{{ sale.id }}</td>
+            <td>{{ sale.sale_date }}</td>
+            <td>{{ sale.product|replace('$', '₹') }}</td>
+            <td>{{ sale.category }}</td>
+            <td>{{ sale.customer_name }}</td>
+            <td>{{ sale.quantity }}</td>
+            <td>{{ '%.2f' % (sale.discount * 100) }}%</td>
+            <td>{{ sale.total_sales|format_inr }}</td>
+            <td>{{ sale.profit|format_inr }}</td>
+            <td>{{ sale.payment_method }}</td>
+            <td>
+              <button class="btn btn-danger" type="button" onclick="confirmDelete({{ sale.id }})">Delete</button>
+            </td>
+          </tr>
+          {% else %}
+          <tr><td colspan="11">No sales matched the current filters.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<script>
+async function confirmDelete(id) {
+  if (!confirm('Delete this sale record? This action cannot be undone.')) {
+    return;
+  }
+
+  const response = await fetch('/sales-history/delete/' + id, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' }
+  });
+  if (response.ok) {
+    window.location.reload();
+  } else {
+    alert('Unable to delete sale.');
+  }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,648 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  .settings-container {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+  }
+
+  .settings-section {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 12px 30px var(--card-shadow);
+    padding: 24px;
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .settings-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 50px var(--card-hover-shadow);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text);
+  }
+
+  .section-header p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin: 0;
+  }
+
+  .header-title {
+    flex: 1;
+  }
+
+  /* THEME SECTION */
+  .theme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .theme-preview {
+    background: var(--panel-strong);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+    position: relative;
+  }
+
+  .theme-preview:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px var(--card-shadow);
+  }
+
+  .theme-preview.active {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px var(--brand-soft), 0 12px 30px var(--card-shadow);
+  }
+
+  .theme-preview-header {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: var(--panel);
+  }
+
+  .theme-preview-name {
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .theme-preview-check {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--brand);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+
+  .theme-preview.active .theme-preview-check {
+    opacity: 1;
+  }
+
+  .theme-preview-body {
+    padding: 12px;
+    display: grid;
+    gap: 8px;
+  }
+
+  .theme-color-row {
+    display: flex;
+    gap: 6px;
+  }
+
+  .theme-color-swatch {
+    flex: 1;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  /* TOGGLE SWITCHES */
+  .setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .setting-item:last-child {
+    border-bottom: none;
+  }
+
+  .setting-label {
+    display: grid;
+    gap: 4px;
+  }
+
+  .setting-label strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .setting-label span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .toggle-switch {
+    position: relative;
+    width: 54px;
+    height: 28px;
+    background: #cbd5e1;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toggle-switch::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: left 200ms ease;
+  }
+
+  .toggle-switch:checked {
+    background: var(--brand);
+  }
+
+  .toggle-switch:checked::after {
+    left: 28px;
+  }
+
+  /* RADIO OPTIONS */
+  .radio-group {
+    display: grid;
+    gap: 12px;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 200ms ease;
+  }
+
+  .radio-option:hover {
+    border-color: var(--brand);
+    background: var(--brand-soft);
+  }
+
+  .radio-option input[type="radio"] {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--brand);
+  }
+
+  .radio-label {
+    display: grid;
+    gap: 2px;
+    cursor: pointer;
+    flex: 1;
+  }
+
+  .radio-label strong {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .radio-label span {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  /* SELECT DROPDOWN */
+  .select-container {
+    position: relative;
+  }
+
+  .settings-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--input-bg);
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color 200ms ease;
+    font-size: 0.95rem;
+  }
+
+  .settings-select:hover {
+    border-color: var(--brand);
+  }
+
+  .settings-select:focus {
+    outline: none;
+    border-color: var(--brand);
+    box-shadow: 0 0 0 4px var(--input-focus-shadow);
+  }
+
+  /* ACTION BUTTONS */
+  .settings-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .btn-settings {
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 200ms ease;
+    font-size: 0.95rem;
+  }
+
+  .btn-save {
+    background: var(--brand);
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  }
+
+  .btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+  }
+
+  .btn-reset {
+    background: #f1f5f9;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-reset:hover {
+    background: var(--surface);
+  }
+
+  .settings-message {
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 16px;
+    display: none;
+    animation: slideDown 300ms ease;
+  }
+
+  .settings-message.success {
+    background: rgba(22, 163, 74, 0.12);
+    color: var(--success);
+    border: 1px solid rgba(22, 163, 74, 0.2);
+    display: block;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .theme-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .settings-section {
+      padding: 16px;
+    }
+  }
+</style>
+
+<div class="settings-container">
+  <!-- SETTINGS MESSAGE -->
+  <div id="settingsMessage" class="settings-message"></div>
+
+  <!-- THEME SECTION -->
+  <section class="settings-section">
+    <div class="section-header">
+      <div class="header-title">
+        <h3>🎨 Theme</h3>
+        <p>Choose your preferred color scheme and visual style</p>
+      </div>
+    </div>
+
+    <div class="theme-grid">
+      <!-- Light Theme -->
+      <div class="theme-preview active" data-theme="light" onclick="selectTheme('light')">
+        <div class="theme-preview-header">
+          <h4 class="theme-preview-name">Light</h4>
+          <div class="theme-preview-check">✓</div>
+        </div>
+        <div class="theme-preview-body">
+          <div class="theme-color-row">
+            <div class="theme-color-swatch" style="background: #f4f6fb;"></div>
+            <div class="theme-color-swatch" style="background: #ffffff;"></div>
+            <div class="theme-color-swatch" style="background: #3b82f6;"></div>
+          </div>
+          <div class="theme-color-row">
+            <div class="theme-color-swatch" style="background: #12233b;"></div>
+            <div class="theme-color-swatch" style="background: #0f172a;"></div>
+            <div class="theme-color-swatch" style="background: #16a34a;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Black Theme -->
+      <div class="theme-preview" data-theme="black" onclick="selectTheme('black')">
+        <div class="theme-preview-header" style="background: #141829;">
+          <h4 class="theme-preview-name" style="color: #e8eaed;">Black</h4>
+          <div class="theme-preview-check"></div>
+        </div>
+        <div class="theme-preview-body">
+          <div class="theme-color-row">
+            <div class="theme-color-swatch" style="background: #0a0e27;"></div>
+            <div class="theme-color-swatch" style="background: #141829;"></div>
+            <div class="theme-color-swatch" style="background: #60a5fa;"></div>
+          </div>
+          <div class="theme-color-row">
+            <div class="theme-color-swatch" style="background: #e8eaed;"></div>
+            <div class="theme-color-swatch" style="background: #0f1419;"></div>
+            <div class="theme-color-swatch" style="background: #4ade80;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grey Theme -->
+      <div class="theme-preview" data-theme="grey" onclick="selectTheme('grey')">
+        <div class="theme-preview-header" style="background: #f5f6f8;">
+          <h4 class="theme-preview-name" style="color: #2c2c2c;">Grey</h4>
+          <div class="theme-preview-check"></div>
+        </div>
+        <div class="theme-preview-body">
+          <div class="theme-color-row">
+            <div class="theme-color-swatch" style="background: #f0f1f3;"></div>
+            <div class="theme-color-swatch" style="background: #ffffff;"></div>
+            <div class="theme-color-swatch" style="background: #5a5a5a;"></div>
+          </div>
+          <div class="theme-color-row">
+            <div class="theme-color-swatch" style="background: #2c2c2c;"></div>
+            <div class="theme-color-swatch" style="background: #3a3a3a;"></div>
+            <div class="theme-color-swatch" style="background: #4b7c4f;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- White Theme -->
+      <div class="theme-preview" data-theme="white" onclick="selectTheme('white')">
+        <div class="theme-preview-header" style="background: #ffffff; border: 1px solid #e5e5e5;">
+          <h4 class="theme-preview-name" style="color: #000000;">White</h4>
+          <div class="theme-preview-check"></div>
+        </div>
+        <div class="theme-preview-body">
+          <div class="theme-color-row">
+            <div class="theme-color-swatch" style="background: #ffffff;"></div>
+            <div class="theme-color-swatch" style="background: #f9fafb;"></div>
+            <div class="theme-color-swatch" style="background: #0066cc;"></div>
+          </div>
+          <div class="theme-color-row">
+            <div class="theme-color-swatch" style="background: #000000;"></div>
+            <div class="theme-color-swatch" style="background: #1a1a1a;"></div>
+            <div class="theme-color-swatch" style="background: #00802b;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Black & White Theme -->
+      <div class="theme-preview" data-theme="bw" onclick="selectTheme('bw')">
+        <div class="theme-preview-header" style="background: #ffffff; border: 2px solid #000000;">
+          <h4 class="theme-preview-name" style="color: #000000;">B&W</h4>
+          <div class="theme-preview-check"></div>
+        </div>
+        <div class="theme-preview-body">
+          <div class="theme-color-row">
+            <div class="theme-color-swatch" style="background: #ffffff; border: 1px solid #000000;"></div>
+            <div class="theme-color-swatch" style="background: #f5f5f5;"></div>
+            <div class="theme-color-swatch" style="background: #000000;"></div>
+          </div>
+          <div class="theme-color-row">
+            <div class="theme-color-swatch" style="background: #000000;"></div>
+            <div class="theme-color-swatch" style="background: #333333;"></div>
+            <div class="theme-color-swatch" style="background: #e6e6e6;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAYOUT SECTION -->
+  <section class="settings-section">
+    <div class="section-header">
+      <div class="header-title">
+        <h3>📐 Layout</h3>
+        <p>Adjust spacing and dashboard density</p>
+      </div>
+    </div>
+
+    <div class="radio-group">
+      <label class="radio-option">
+        <input type="radio" name="layout" value="comfortable" data-layout-option onchange="changeLayout(this.value)">
+        <div class="radio-label">
+          <strong>Comfortable</strong>
+          <span>More breathing room with generous spacing (Default)</span>
+        </div>
+      </label>
+      <label class="radio-option">
+        <input type="radio" name="layout" value="compact" data-layout-option onchange="changeLayout(this.value)">
+        <div class="radio-label">
+          <strong>Compact</strong>
+          <span>Reduced spacing for more content on screen</span>
+        </div>
+      </label>
+    </div>
+  </section>
+
+  <!-- SIDEBAR SECTION -->
+  <section class="settings-section">
+    <div class="section-header">
+      <div class="header-title">
+        <h3>☰ Sidebar</h3>
+        <p>Customize sidebar behavior</p>
+      </div>
+    </div>
+
+    <div class="setting-item">
+      <div class="setting-label">
+        <strong>Collapsible Sidebar</strong>
+        <span>Toggle to collapse or expand the sidebar</span>
+      </div>
+      <input type="checkbox" class="toggle-switch" data-sidebar-toggle onchange="toggleSidebar()">
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY SECTION -->
+  <section class="settings-section">
+    <div class="section-header">
+      <div class="header-title">
+        <h3>🔤 Typography</h3>
+        <p>Adjust text size for better readability</p>
+      </div>
+    </div>
+
+    <div class="setting-item">
+      <div class="setting-label">
+        <strong>Font Size</strong>
+        <span>Choose your preferred text size</span>
+      </div>
+      <div class="select-container">
+        <select class="settings-select" data-font-size-select onchange="changeFontSize(this.value)">
+          <option value="small">Small (14px)</option>
+          <option value="medium" selected>Medium (16px) - Default</option>
+          <option value="large">Large (18px)</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTIFICATIONS SECTION -->
+  <section class="settings-section">
+    <div class="section-header">
+      <div class="header-title">
+        <h3>🔔 Notifications</h3>
+        <p>Control how you receive alerts and updates</p>
+      </div>
+    </div>
+
+    <div class="setting-item">
+      <div class="setting-label">
+        <strong>Enable Notifications</strong>
+        <span>Receive dashboard alerts and updates</span>
+      </div>
+      <input type="checkbox" class="toggle-switch" data-notifications-toggle checked onchange="toggleNotifications(this.checked)">
+    </div>
+  </section>
+
+  <!-- ACTIONS SECTION -->
+  <section class="settings-section">
+    <div class="settings-actions">
+      <button class="btn-settings btn-save" onclick="saveSettings()">
+        💾 Save Settings
+      </button>
+      <button class="btn-settings btn-reset" onclick="resetToDefaults()">
+        ↺ Reset to Defaults
+      </button>
+    </div>
+  </section>
+</div>
+
+<script>
+  // Theme selection
+  function selectTheme(theme) {
+    if (themeManager) {
+      themeManager.setTheme(theme);
+      showMessage('Theme changed to ' + theme.charAt(0).toUpperCase() + theme.slice(1), 'success');
+    }
+  }
+
+  // Layout change
+  function changeLayout(layout) {
+    if (themeManager) {
+      themeManager.setLayout(layout);
+      showMessage('Layout updated to ' + layout, 'success');
+    }
+  }
+
+  // Font size change
+  function changeFontSize(size) {
+    if (themeManager) {
+      themeManager.setFontSize(size);
+      showMessage('Font size changed', 'success');
+    }
+  }
+
+  // Sidebar toggle
+  function toggleSidebar() {
+    if (themeManager) {
+      themeManager.toggleSidebar();
+      const isCollapsed = themeManager.isSidebarCollapsed();
+      showMessage(isCollapsed ? 'Sidebar collapsed' : 'Sidebar expanded', 'success');
+    }
+  }
+
+  // Notifications toggle
+  function toggleNotifications(enabled) {
+    if (themeManager) {
+      themeManager.setNotifications(enabled);
+      showMessage(enabled ? 'Notifications enabled' : 'Notifications disabled', 'success');
+    }
+  }
+
+  // Save all settings
+  function saveSettings() {
+    if (themeManager) {
+      const settings = themeManager.saveSettings();
+      console.log('Settings saved:', settings);
+      showMessage('✓ All settings have been saved!', 'success');
+    }
+  }
+
+  // Reset to defaults
+  function resetToDefaults() {
+    if (confirm('Are you sure you want to reset all settings to defaults? This cannot be undone.')) {
+      if (themeManager) {
+        themeManager.resetToDefaults();
+        showMessage('✓ All settings reset to defaults', 'success');
+        // Reload the page to see all changes
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
+      }
+    }
+  }
+
+  // Show message
+  function showMessage(message, type) {
+    const messageEl = document.getElementById('settingsMessage');
+    if (messageEl) {
+      messageEl.textContent = message;
+      messageEl.className = 'settings-message ' + type;
+      setTimeout(() => {
+        messageEl.className = 'settings-message';
+      }, 3000);
+    }
+  }
+
+  // Initialize UI on page load
+  window.addEventListener('load', () => {
+    if (themeManager) {
+      themeManager.updateThemeUI(themeManager.getTheme());
+      themeManager.updateLayoutUI(themeManager.getLayout());
+      themeManager.updateFontSizeUI(themeManager.getFontSize());
+      themeManager.updateNotificationsUI(themeManager.areNotificationsEnabled());
+    }
+  });
+</script>
+{% endblock %}
+

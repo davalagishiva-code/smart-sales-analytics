@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Smart Sales Analytics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/themes.css">
+    <link rel="stylesheet" href="/static/css/ui.css">
+    <script src="/static/js/theme-manager.js"></script>
+    <script defer src="/static/js/predict.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <aside class="sidebar">
+        <a class="brand" href="/">
+          <div class="brand-crest">SS</div>
+          <div>
+            <h1>Smart Sales</h1>
+            <p>Analytics dashboard</p>
+          </div>
+        </a>
+
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="/" class="{{ 'active' if page == 'dashboard' else '' }}"><span class="icon">🏠</span>Dashboard</a></li>
+            <li><a href="/analysis" class="{{ 'active' if page == 'analysis' else '' }}"><span class="icon">📊</span>Sales Analysis</a></li>
+            <li><a href="/products" class="{{ 'active' if page == 'products' else '' }}"><span class="icon">🛍️</span>Products</a></li>
+            <li><a href="/customers" class="{{ 'active' if page == 'customers' else '' }}"><span class="icon">👥</span>Customers</a></li>
+            <li><a href="/predict" class="{{ 'active' if page == 'predict' else '' }}"><span class="icon">🤖</span>Predictions</a></li>
+            <li><a href="/add-sale" class="{{ 'active' if page == 'add_sale' else '' }}"><span class="icon">➕</span>Add Sale</a></li>
+            <li><a href="/sales-history" class="{{ 'active' if page == 'sales_history' else '' }}"><span class="icon">📜</span>Sales History</a></li>
+            <li><a href="/reports" class="{{ 'active' if page == 'reports' else '' }}"><span class="icon">📁</span>Reports</a></li>
+            <li><a href="/settings" class="{{ 'active' if page == 'settings' else '' }}"><span class="icon">⚙️</span>Settings</a></li>
+            <li><a href="/about" class="{{ 'active' if page == 'about' else '' }}"><span class="icon">ℹ️</span>About</a></li>
+          </ul>
+        </nav>
+
+        <div class="spacer"></div>
+        <small>Smart Sales Analytics • Premium edition</small>
+      </aside>
+
+      <section class="content-area">
+        <header class="topbar">
+          <div class="page-title">
+            <h2>{{ page_title }}</h2>
+            <p class="subtitle">A modern analytics workspace for retail performance insights.</p>
+          </div>
+          <div class="top-actions">
+            <div class="search-input">
+              <span class="search-icon">🔎</span>
+              <input placeholder="Search reports, products, pages" aria-label="Search" />
+            </div>
+            <button class="icon-button" aria-label="Notifications">🔔</button>
+            <div class="profile-pill">
+              <span class="avatar">S</span>
+              <div class="profile-text">
+                <strong>Sales Admin</strong>
+                <span>Online</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main>
+          {% block content %}{% endblock %}
+        </main>
+
+        <footer class="footer">
+          <div>Smart Sales Analytics • © {{ current_year }}</div>
+          <div><a href="/about">About</a> · <a href="/settings">Contact</a></div>
+        </footer>
+      </section>
+    </div>
+  </body>
+</html>

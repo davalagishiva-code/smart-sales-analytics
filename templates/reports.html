@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="analysis-grid">
+  <section class="panel-card" style="grid-column: span 6;">
+    <div class="section-title">
+      <div>
+        <h3>Reports</h3>
+        <p>Download generated CSV and JSON analytics files.</p>
+      </div>
+    </div>
+    <div class="table-wrapper">
+      <table class="table-dashboard">
+        <thead>
+          <tr><th>File name</th><th>Type</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          {% for file in analysis_files %}
+          <tr>
+            <td>{{ file }}</td>
+            <td>{{ file.rsplit('.', 1)[-1] }}</td>
+            <td><a class="btn btn-outline" href="/analysis/download/{{ file }}">Download</a></td>
+          </tr>
+          {% else %}
+          <tr><td colspan="3">No reports found. Run analysis scripts to generate report files.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel-card" style="grid-column: span 6;">
+    <div class="section-title">
+      <div>
+        <h3>Chart library</h3>
+        <p>Static visual reports generated from your sales dataset.</p>
+      </div>
+    </div>
+    <div class="table-wrapper">
+      <table class="table-dashboard">
+        <thead>
+          <tr><th>Chart</th><th>Preview</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          {% for chart in images %}
+          <tr>
+            <td>{{ chart }}</td>
+            <td><img src="{{ url_for('static', filename='images/' ~ chart) }}" style="max-width: 120px; border-radius: 14px;" alt="{{ chart }}"></td>
+            <td><span class="badge success">Available</span></td>
+          </tr>
+          {% else %}
+          <tr><td colspan="3">No chart images found. Run chart generation to display visuals.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+{% endblock %}
