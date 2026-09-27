@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Sales Analytics</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="brand-box">
+            <div class="brand-icon">S</div>
+            <div>
+              <h2>Smart Sales</h2>
+              <small>Analytics</small>
+            </div>
+          </div>
+          <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar">×</button>
+        </div>
+
+        <nav class="nav-menu" id="navMenu">
+          <button class="nav-item active" data-section="dashboard">Dashboard</button>
+          <button class="nav-item" data-section="analysis">Analysis</button>
+          <button class="nav-item" data-section="products">Products</button>
+          <button class="nav-item" data-section="customers">Customers</button>
+          <button class="nav-item" data-section="reports">Reports</button>
+          <button class="nav-item" data-section="settings">Settings</button>
+          <button class="nav-item" data-section="add-sale">Add Sale</button>
+          <button class="nav-item" data-section="sales-history">Sales History</button>
+          <button class="nav-item" data-section="prediction">Prediction</button>
+          <button class="nav-item" data-section="about">About</button>
+        </nav>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div class="header-left">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle sidebar">☰</button>
+            <div class="header-title-wrap">
+              <p class="eyebrow">Sales performance overview</p>
+              <h1>Dashboard</h1>
+            </div>
+          </div>
+          <div class="header-right">
+            <label class="global-search" aria-label="Search sales records">
+              <span class="search-icon">⌕</span>
+              <input type="search" id="globalSearch" placeholder="Search customers or products" />
+            </label>
+            <button class="toolbar-btn" id="refreshDashboardBtn" type="button" aria-label="Refresh dashboard">↻ Refresh</button>
+            <div class="profile-menu">
+              <button class="profile-button" id="profileToggle" type="button" aria-expanded="false">
+                <span class="profile-avatar">SD</span>
+                <span class="profile-meta">
+                  <strong>Shivanand Davalagi</strong>
+                  <small>Sales Director</small>
+                </span>
+              </button>
+              <div class="profile-panel" id="profilePanel" hidden>
+                <div class="profile-header">
+                  <span class="profile-avatar large">SD</span>
+                  <div>
+                    <strong>Shivanand Davalagi</strong>
+                    <small>Director, Revenue Operations</small>
+                  </div>
+                </div>
+                <div class="profile-contact">
+                  <a class="phone-link" href="tel:+919482371974">📞 +91 94823 71974</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="page-section active" id="dashboard">
+          <div class="dashboard-toolbar panel">
+            <div class="dashboard-range" aria-label="Dashboard date range">
+              <button class="range-btn active" data-range="all" type="button">All Time</button>
+              <button class="range-btn" data-range="today" type="button">Today</button>
+              <button class="range-btn" data-range="week" type="button">This Week</button>
+              <button class="range-btn" data-range="month" type="button">This Month</button>
+              <button class="range-btn" data-range="last_month" type="button">Last Month</button>
+              <button class="range-btn" data-range="year" type="button">This Year</button>
+            </div>
+            <div class="last-updated">Last updated: <span id="lastUpdatedText">--</span></div>
+          </div>
+          <div id="dashboardStatus" class="status-message"></div>
+          <div id="dashboardKpis" class="kpi-grid"></div>
+
+          <div class="dashboard-grid">
+            <div class="panel chart-panel wide-panel">
+              <div class="panel-heading">
+                <h3>Revenue Trend</h3>
+              </div>
+              <div id="revenueTrendChart" class="chart-placeholder chart-surface">Loading revenue trend...</div>
+            </div>
+            <div class="panel chart-panel">
+              <div class="panel-heading">
+                <h3>Payment Method</h3>
+              </div>
+              <div id="paymentChart" class="chart-placeholder chart-surface">Loading payment mix...</div>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="panel chart-panel">
+              <div class="panel-heading">
+                <h3>Monthly Sales</h3>
+              </div>
+              <div id="monthlyChart" class="chart-placeholder chart-surface">Loading monthly sales...</div>
+            </div>
+            <div class="panel chart-panel">
+              <div class="panel-heading">
+                <h3>Category Performance</h3>
+              </div>
+              <div id="categoryChart" class="chart-placeholder chart-surface">Loading category performance...</div>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="panel chart-panel">
+              <div class="panel-heading">
+                <h3>Top Products</h3>
+              </div>
+              <div id="productsChart" class="chart-placeholder chart-surface">Loading top products...</div>
+            </div>
+            <div class="panel chart-panel">
+              <div class="panel-heading">
+                <h3>Regional Sales</h3>
+              </div>
+              <div id="regionChart" class="chart-placeholder chart-surface">Loading region performance...</div>
+            </div>
+          </div>
+
+          <div class="dashboard-grid dashboard-lower-grid">
+            <div class="panel">
+              <div class="panel-heading">
+                <h3>Top Performers</h3>
+              </div>
+              <div id="topPerformersGrid" class="performers-grid"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" id="analysis">
+          <div class="analysis-shell">
+            <div class="analysis-header">
+              <div>
+                <p class="analysis-kicker">Business intelligence</p>
+                <h2>Analysis</h2>
+              </div>
+              <div class="analysis-subtitle">Detailed sales performance and business insights</div>
+            </div>
+
+            <div class="panel analysis-filter-panel">
+              <div class="analysis-range-group" aria-label="Date range filters">
+                <button class="analysis-range-btn active" data-range="all" type="button">All Time</button>
+                <button class="analysis-range-btn" data-range="today" type="button">Today</button>
+                <button class="analysis-range-btn" data-range="week" type="button">This Week</button>
+                <button class="analysis-range-btn" data-range="month" type="button">This Month</button>
+                <button class="analysis-range-btn" data-range="last_month" type="button">Last Month</button>
+                <button class="analysis-range-btn" data-range="year" type="button">This Year</button>
+              </div>
+
+              <form id="analysisFilterForm" class="analysis-filter-form">
+                <div class="analysis-filter-grid">
+                  <label>
+                    <span>Start Date</span>
+                    <input type="date" id="analysisStartDate" />
+                  </label>
+                  <label>
+                    <span>End Date</span>
+                    <input type="date" id="analysisEndDate" />
+                  </label>
+                  <label>
+                    <span>Category</span>
+                    <select id="analysisCategory">
+                      <option value="">All categories</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Region</span>
+                    <select id="analysisRegion">
+                      <option value="">All regions</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Payment Method</span>
+                    <select id="analysisPaymentMethod">
+                      <option value="">All payment methods</option>
+                    </select>
+                  </label>
+                  <div class="analysis-action-group">
+                    <button class="primary" type="submit">Apply Filters</button>
+                    <button class="secondary" id="analysisResetBtn" type="button">Reset Filters</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div id="analysisStatus" class="analysis-status" aria-live="polite"></div>
+            <div id="analysisSummary" class="analysis-summary-grid"></div>
+
+            <div class="analysis-chart-grid">
+              <div class="panel chart-panel analysis-panel">
+                <div class="panel-heading"><h3>Sales by Month</h3></div>
+                <div id="analysisMonthlyChart" class="chart-placeholder chart-surface">Loading chart...</div>
+              </div>
+              <div class="panel chart-panel analysis-panel">
+                <div class="panel-heading"><h3>Sales by Category</h3></div>
+                <div id="analysisCategoryChart" class="chart-placeholder chart-surface">Loading chart...</div>
+              </div>
+            </div>
+
+            <div class="analysis-chart-grid">
+              <div class="panel chart-panel analysis-panel">
+                <div class="panel-heading"><h3>Sales by Region</h3></div>
+                <div id="analysisRegionChart" class="chart-placeholder chart-surface">Loading chart...</div>
+              </div>
+              <div class="panel chart-panel analysis-panel">
+                <div class="panel-heading"><h3>Top Products by Revenue</h3></div>
+                <div id="analysisProductsChart" class="chart-placeholder chart-surface">Loading chart...</div>
+              </div>
+            </div>
+
+            <div class="analysis-chart-grid">
+              <div class="panel chart-panel analysis-panel">
+                <div class="panel-heading"><h3>Profit by Month</h3></div>
+                <div id="analysisProfitChart" class="chart-placeholder chart-surface">Loading chart...</div>
+              </div>
+              <div class="panel chart-panel analysis-panel">
+                <div class="panel-heading"><h3>Sales vs Profit Analysis</h3></div>
+                <div id="analysisScatterChart" class="chart-placeholder chart-surface">Loading chart...</div>
+              </div>
+            </div>
+
+            <div class="analysis-chart-grid">
+              <div class="panel chart-panel analysis-panel">
+                <div class="panel-heading"><h3>Profit Margin by Category</h3></div>
+                <div id="analysisMarginChart" class="chart-placeholder chart-surface">Loading chart...</div>
+              </div>
+              <div class="panel chart-panel analysis-panel">
+                <div class="panel-heading"><h3>Performance Comparison</h3></div>
+                <div id="analysisComparison" class="comparison-grid"></div>
+              </div>
+            </div>
+
+            <div class="analysis-lower-grid">
+              <div class="panel analysis-panel">
+                <div class="panel-heading"><h3>AI-Style Business Insights</h3></div>
+                <div id="analysisInsights" class="insight-list"></div>
+              </div>
+              <div class="panel analysis-panel">
+                <div class="panel-heading"><h3>Best / Worst Performers</h3></div>
+                <div id="analysisPerformers" class="performer-matrix"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" id="products">
+          <div class="products-shell">
+            <div class="section-header products-header">
+              <div>
+                <p class="eyebrow">Inventory</p>
+                <h2>Products</h2>
+              </div>
+              <button id="productsAddBtn" class="primary-btn" type="button">Add Product</button>
+            </div>
+
+            <div class="panel products-toolbar-panel">
+              <div class="products-toolbar">
+                <div class="products-search-wrap">
+                  <span class="search-icon">⌕</span>
+                  <input id="productsSearch" type="search" placeholder="Search products, SKU or category" aria-label="Search products" />
+                </div>
+                <div class="products-filter-group">
+                  <select id="productsCategoryFilter">
+                    <option value="">All categories</option>
+                  </select>
+                  <select id="productsStatusFilter">
+                    <option value="">All statuses</option>
+                    <option value="active">Active</option>
+                    <option value="low-stock">Low stock</option>
+                    <option value="out-of-stock">Out of stock</option>
+                    <option value="archived">Archived</option>
+                  </select>
+                  <select id="productsSortBy">
+                    <option value="name">Sort by name</option>
+                    <option value="category">Sort by category</option>
+                    <option value="stock">Sort by stock</option>
+                    <option value="price">Sort by price</option>
+                    <option value="revenue">Sort by revenue</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div id="productsSummary" class="products-summary-grid"></div>
+
+            <div class="panel table-panel product-table-panel">
+              <div class="table-wrap">
+                <table class="products-table">
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Category</th>
+                      <th>Price</th>
+                      <th>Stock</th>
+                      <th>Status</th>
+                      <th>Revenue</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="productsTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div id="productModal" class="product-modal hidden" aria-hidden="true">
+          <div class="product-modal-backdrop" data-close-modal="true"></div>
+          <div class="product-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="productFormTitle">
+            <div class="product-modal-header">
+              <div>
+                <p class="eyebrow">Inventory</p>
+                <h3 id="productFormTitle">Add Product</h3>
+              </div>
+              <button id="productCloseBtn" class="secondary-btn" type="button" aria-label="Close product form">✕</button>
+            </div>
+
+            <form id="productForm" class="product-form">
+              <div class="product-form-grid">
+                <label>
+                  <span>Product name</span>
+                  <input name="name" type="text" required />
+                </label>
+                <label>
+                  <span>SKU</span>
+                  <input name="sku" type="text" placeholder="Optional" />
+                </label>
+                <label>
+                  <span>Category</span>
+                  <input name="category" type="text" required />
+                </label>
+                <label>
+                  <span>Status</span>
+                  <select name="status">
+                    <option value="active">Active</option>
+                    <option value="low-stock">Low stock</option>
+                    <option value="out-of-stock">Out of stock</option>
+                    <option value="archived">Archived</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Price</span>
+                  <input name="price" type="number" min="0" step="0.01" required />
+                </label>
+                <label>
+                  <span>Cost price</span>
+                  <input name="cost_price" type="number" min="0" step="0.01" value="0" />
+                </label>
+                <label>
+                  <span>Stock</span>
+                  <input name="stock" type="number" min="0" step="1" value="0" required />
+                </label>
+                <label>
+                  <span>Min stock</span>
+                  <input name="min_stock" type="number" min="0" step="1" value="0" />
+                </label>
+              </div>
+
+              <label class="full-width">
+                <span>Description</span>
+                <textarea name="description" rows="4" placeholder="Describe the product"></textarea>
+              </label>
+
+              <div class="product-form-actions">
+                <button id="productCancelBtn" class="secondary-btn" type="button">Cancel</button>
+                <button class="primary-btn" type="submit">Save Product</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <section class="page-section" id="customers">
+          <div class="customers-shell">
+            <div class="customers-header">
+              <div>
+                <p class="analysis-kicker">Customer relationship</p>
+                <h2>Customers</h2>
+              </div>
+              <button id="customersAddBtn" class="primary-btn" type="button">+ Add Customer</button>
+            </div>
+
+            <div id="customersSummaryGrid" class="customers-summary-grid"></div>
+
+            <div class="panel customers-toolbar-panel">
+              <div class="customers-toolbar">
+                <div class="customers-search-wrap">
+                  <span class="search-icon">⌕</span>
+                  <input id="customersSearch" type="search" placeholder="Search customers, email, city..." />
+                </div>
+                <div class="customers-filter-group">
+                  <select id="customersTypeFilter">
+                    <option value="">All customer types</option>
+                    <option value="Regular">Regular</option>
+                    <option value="Premium">Premium</option>
+                    <option value="VIP">VIP</option>
+                    <option value="Business">Business</option>
+                  </select>
+                  <select id="customersStatusFilter">
+                    <option value="">All statuses</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                    <option value="New">New</option>
+                  </select>
+                  <select id="customersSortBy">
+                    <option value="name">Sort by name</option>
+                    <option value="total_spent">Sort by revenue</option>
+                    <option value="orders">Sort by orders</option>
+                    <option value="last_purchase">Sort by recent purchase</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel customer-table-panel">
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Customer</th>
+                      <th>Location</th>
+                      <th>Type</th>
+                      <th>Status</th>
+                      <th>Orders</th>
+                      <th>Spend</th>
+                      <th>Last Purchase</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="customersTableBody"></tbody>
+                </table>
+              </div>
+              <div id="customersPagination" class="customers-pagination"></div>
+            </div>
+          </div>
+        </section>
+
+        <div id="customerModal" class="customer-modal hidden" aria-hidden="true">
+          <div class="customer-modal-backdrop" data-close-customer-modal="true"></div>
+          <div class="customer-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="customerFormTitle">
+            <div class="product-modal-header">
+              <h3 id="customerFormTitle">Add Customer</h3>
+              <button type="button" class="table-action-btn" data-close-customer-modal="true">Close</button>
+            </div>
+
+            <form id="customerForm" class="customer-form">
+              <div class="customer-form-grid">
+                <label>
+                  <span>Customer Name</span>
+                  <input name="name" type="text" required />
+                </label>
+                <label>
+                  <span>Email</span>
+                  <input name="email" type="email" required />
+                </label>
+                <label>
+                  <span>Phone</span>
+                  <input name="phone" type="tel" required />
+                </label>
+                <label>
+                  <span>Registration Date</span>
+                  <input name="registration_date" type="date" />
+                </label>
+                <label>
+                  <span>Customer Type</span>
+                  <select name="customer_type">
+                    <option value="Regular">Regular</option>
+                    <option value="Premium">Premium</option>
+                    <option value="VIP">VIP</option>
+                    <option value="Business">Business</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Status</span>
+                  <select name="status">
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                    <option value="New">New</option>
+                  </select>
+                </label>
+                <label class="full-width">
+                  <span>Address</span>
+                  <textarea name="address" rows="3" required></textarea>
+                </label>
+                <label>
+                  <span>City</span>
+                  <input name="city" type="text" required />
+                </label>
+                <label>
+                  <span>State</span>
+                  <input name="state" type="text" required />
+                </label>
+                <label>
+                  <span>PIN Code</span>
+                  <input name="pincode" type="text" required />
+                </label>
+              </div>
+
+              <div class="customer-form-footer">
+                <div id="customerFormMessage" class="customer-form-message" aria-live="polite"></div>
+                <div class="customer-form-actions">
+                  <button type="button" class="secondary-btn" data-close-customer-modal="true">Cancel</button>
+                  <button type="submit" class="primary-btn">Save Customer</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <section class="page-section" id="reports">
+          <div class="section-header">
+            <h2>Reports</h2>
+          </div>
+          <div class="panel report-actions">
+            <button id="downloadCsvBtn">Download CSV</button>
+            <button id="downloadExcelBtn">Download Excel</button>
+          </div>
+          <div class="panel table-panel">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Date</th>
+                  <th>Product</th>
+                  <th>Customer</th>
+                  <th>Region</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody id="reportsTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="page-section" id="settings">
+          <div class="section-header">
+            <h2>Settings</h2>
+          </div>
+          <div class="settings-grid">
+            <div class="panel">
+              <h3>Application Settings</h3>
+              <div class="setting-row">
+                <label>Default currency</label>
+                <span>INR</span>
+              </div>
+              <div class="setting-row">
+                <label>Backend URL</label>
+                <span id="backendUrlDisplay">http://127.0.0.1:8080</span>
+              </div>
+              <div class="setting-row">
+                <label>Frontend URL</label>
+                <span>http://127.0.0.1:5500</span>
+              </div>
+            </div>
+            <div class="panel">
+              <h3>Database Status</h3>
+              <div id="dbStatus" class="status-box">Checking database...</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" id="add-sale">
+          <div class="section-header">
+            <h2>Add Sale</h2>
+          </div>
+          <div class="panel form-panel">
+            <form id="saleForm" class="sale-form">
+              <div class="form-grid">
+                <label>
+                  Date
+                  <input type="date" id="saleDate" required />
+                </label>
+                <label>
+                  Product
+                  <input type="text" id="saleProduct" required />
+                </label>
+                <label>
+                  Category
+                  <input type="text" id="saleCategory" required />
+                </label>
+                <label>
+                  Quantity
+                  <input type="number" id="saleQuantity" min="1" step="1" required />
+                </label>
+                <label>
+                  Unit Price
+                  <input type="number" id="saleUnitPrice" min="0.01" step="0.01" required />
+                </label>
+                <label>
+                  Discount (%)
+                  <input type="number" id="saleDiscount" min="0" max="100" step="0.01" value="0" />
+                </label>
+                <label>
+                  Customer
+                  <input type="text" id="saleCustomer" required />
+                </label>
+                <label>
+                  Region
+                  <input type="text" id="saleRegion" required />
+                </label>
+                <label>
+                  Payment Method
+                  <select id="salePaymentMethod" required>
+                    <option value="">Select</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Card">Card</option>
+                    <option value="UPI">UPI</option>
+                    <option value="Bank Transfer">Bank Transfer</option>
+                    <option value="Digital">Digital</option>
+                  </select>
+                </label>
+              </div>
+              <div class="form-actions">
+                <button type="submit">Save Sale</button>
+                <div id="saleSuccessMessage" class="success-message" aria-live="polite"></div>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="page-section" id="sales-history">
+          <div class="section-header">
+            <h2>Sales History</h2>
+          </div>
+          <div class="panel filter-panel">
+            <div class="filter-row">
+              <input type="text" id="historySearch" placeholder="Search sales..." />
+              <select id="historyCategoryFilter">
+                <option value="">All categories</option>
+              </select>
+              <input type="date" id="historyStartDate" />
+              <input type="date" id="historyEndDate" />
+              <select id="historySortBy">
+                <option value="date">Sort by Date</option>
+                <option value="total_amount">Sort by Total</option>
+                <option value="product">Sort by Product</option>
+              </select>
+              <select id="historyOrder">
+                <option value="desc">Descending</option>
+                <option value="asc">Ascending</option>
+              </select>
+            </div>
+          </div>
+          <div class="panel table-panel">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Product</th>
+                  <th>Category</th>
+                  <th>Customer</th>
+                  <th>Region</th>
+                  <th>Total</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="historyTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="page-section" id="prediction">
+          <div class="section-header">
+            <h2>Prediction</h2>
+          </div>
+          <div class="panel form-panel">
+            <form id="predictionForm" class="sale-form">
+              <div class="form-grid">
+                <label>
+                  Product
+                  <input type="text" id="predProduct" required />
+                </label>
+                <label>
+                  Category
+                  <input type="text" id="predCategory" required />
+                </label>
+                <label>
+                  Quantity
+                  <input type="number" id="predQuantity" min="1" step="1" required />
+                </label>
+                <label>
+                  Unit Price
+                  <input type="number" id="predUnitPrice" min="0.01" step="0.01" required />
+                </label>
+                <label>
+                  Discount (%)
+                  <input type="number" id="predDiscount" min="0" max="100" step="0.01" value="0" />
+                </label>
+                <label>
+                  Customer
+                  <input type="text" id="predCustomer" required />
+                </label>
+                <label>
+                  Region
+                  <input type="text" id="predRegion" required />
+                </label>
+                <label>
+                  Payment Method
+                  <select id="predPaymentMethod" required>
+                    <option value="">Select</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Card">Card</option>
+                    <option value="UPI">UPI</option>
+                    <option value="Bank Transfer">Bank Transfer</option>
+                    <option value="Digital">Digital</option>
+                  </select>
+                </label>
+              </div>
+              <div class="form-actions">
+                <button type="submit">Generate Prediction</button>
+                <div id="predictionResult" class="prediction-result"></div>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="page-section" id="about">
+          <div class="section-header">
+            <h2>About</h2>
+          </div>
+          <div class="panel about-panel">
+            <h3>Smart Sales Analytics</h3>
+            <p>
+              A professional sales analytics system for managing sales, understanding business performance,
+              analyzing customers and products, and using machine learning for prediction.
+            </p>
+            <div class="contact-box">
+              <h4>Contact</h4>
+              <p>Phone: 9482371974</p>
+              <p>Email: smartsalesananalytics@gmail.com</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <p>Smart Sales Analytics © 2026</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

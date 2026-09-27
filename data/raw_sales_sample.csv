@@ -1,6 +1,0 @@
-Order ID,Order Date,Customer ID,Customer Name,Product,Category,Region,Quantity,Unit Price,Discount,Sales,Profit,Payment Method
-ORD000001,2021-05-12,CUST0001,Alice Johnson,UltraPhone X,Electronics,North,1,699.0,0.05,664.05,119.53,Credit Card
-ORD000002,2020-11-03,CUST0002,Bob Smith,PowerBank 20K,Electronics,South,2,49.0,0.0,98.0,17.64,PayPal
-ORD000003,2022-07-21,CUST0003,Carol Lee,Ergo Chair,Furniture,East,1,199.0,0.1,179.1,39.4,Debit Card
-ORD000004,2020-02-11,CUST0004,David Brown,Standing Desk,Furniture,West,1,399.0,0.15,339.15,73.58,Bank Transfer
-ORD000005,2023-01-30,CUST0005,Eva Green,Office Lamp,Furniture,Central,3,29.0,0.0,87.0,19.14,Cash

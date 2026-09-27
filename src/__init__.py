@@ -1,1 +1,1 @@
-"""src package for smart-sales-analytics"""
+"""Core application logic for Smart Sales Analytics."""
